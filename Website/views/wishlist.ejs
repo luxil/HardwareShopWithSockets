@@ -1,0 +1,78 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-route.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid" >
+    <div>
+        <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px;">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li class="active"><a href="/wishlist">Wishlist<span class="sr-only">(current)</span></a></li>
+                <li><a href="/contact">Contact us</a></li>
+            </ul>
+        </nav>
+    </div>
+    <br/>
+        <div id="wishlistData" class="container-fluid" >
+            <style>
+                h1 {
+                    font-size: large;
+                }
+                table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                }
+                th, td {
+                    padding: 5px;
+                }
+            </style>
+            <h1><b >Your Wishlist</b></h1>
+            <table id="wishlistTable"  border="1" cellpadding="2">
+                <tr>
+                    <td><b>ID</b></td>
+                    <td><b>Views</b></td>
+                    <td><b>Editor</b></td>
+                    <td><b>Category</b></td>
+                    <td><b>Subcategory</b></td>
+                    <td><b>Manufacturer</b></td>
+                    <td><b>Title</b></td>
+                    <td><b>Date</b></td>
+                    <td><b>Edit</b></td>
+                    <td><b>Status</b></td>
+                </tr>
+
+                <% wishLists.forEach(function(wishList, key){ %>
+
+                    <%console.log("wishLID:" + wishList.id + ", key: " + key);%>
+                    <% articleList.forEach(function(articleList){ %>
+
+                        <% if (wishList.article_id==articleList.id){%>
+                            <tr>
+                            <%for (prop in articleList){ %>
+                                <td><%= articleList[prop]; %></td>
+                            <% } %>
+                            <td><input type="button" id="deletetw_<%= key %>" value="Delete" class="deletetw"></td>
+                            </tr>
+                        <%}%>
+
+                    <%})%>
+
+                <%})%>
+            </table>
+            &nbsp;<br/>
+        </div>
+    </div>
+</div>
+<script src="../Server.js"></script>
+<script src="./functions.js"></script>
+<script>
+    operations.deleteWishlistArt(1);
+</script>
+</body>
+</html>

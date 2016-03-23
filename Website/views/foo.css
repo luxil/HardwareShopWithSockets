@@ -1,0 +1,14 @@
+#link {
+    display : block;
+    width:100px;
+    height:40px;
+}
+
+.clicker {
+    cursor:pointer;
+    color:blue;
+}
+
+.morelink {
+    display: block;
+}

@@ -1,0 +1,101 @@
+<!--
+index.html
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML dynamic table using JavaScript</title>
+    <meta charset="UTF-8">
+    <title>Single page web app using Angularjs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-route.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="../Server.js"></script>
+    <script src="./functions.js"></script>
+
+
+</head>
+
+<body>
+<div class="container-fluid">
+    <nav class="navbar navbar-inverse" role="navigation" style="padding-left:130px;">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
+            <li><a href="/wishlist">Wishlist</a></li>
+            <li><a href="/contact">Contact us</a></li>
+        </ul>
+
+    </nav>
+    <br/>
+    <div class="jumbotron">
+        <div class="input-group" id="search">
+        </div>
+        <form id="my_form" action="" method='post'>
+            <div class="row-fluid" class="form-group">
+                <div class="col-sm-4">
+                    <input type="text" id="searchTerm" name="searchTerm" placeholder="Search for hardware" />
+                </div>
+                <div class="more">
+                    Some text..
+                </div>
+                <select name="cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="audi">Audi</option>
+                </select>
+                <input type="submit" id="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="myform">
+    <b>Simple form with name and age ...</b>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" id="name"></td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><input type="text" id="age">
+                <input type="button" id="add" value="Add" ></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</div>
+<div id="mydata">
+    <b>Current data in the system ...</b>
+    <table id="myTableData"  border="1" cellpadding="2">
+        <tr>
+            <td>&nbsp;</td>
+            <td><b>Name</b></td>
+            <td><b>Age</b></td>
+        </tr>
+    </table>
+    &nbsp;<br/>
+</div>
+<div id="myDynamicTable">
+    <!--$('#my-button').click(addTable)-->
+    <input type="button" id="create" value="Click here">
+    to create a Table and add some data using JavaScript
+</div>
+
+<ul id="articleList">
+    <% articleList.forEach(function(articleList){ %>
+    <li><%= articleList.id %> &lt;<%= articleList.catName %>&gt;</li>
+    <% }) %>
+</ul>
+
+</body>
+</html>
+
